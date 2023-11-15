@@ -39,7 +39,7 @@ func init() {
 	if err != nil {
 		log.Fatalf("failed to initiate db connection: %v", err)
 	}
-	defer dbaseAdapter.CloseDbConnection()
+	// defer dbaseAdapter.CloseDbConnection()
 
 	core = arithmetic.NewAdapter()
 

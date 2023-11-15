@@ -43,7 +43,7 @@ func (da Adapter) AddToHistory(answer int32, operation string) error {
 		return err
 	}
 
-	if _, err = da.db.Exec(queryString, args); err != nil {
+	if _, err = da.db.Exec(queryString, args...); err != nil {
 		return err
 	}
 

@@ -2,6 +2,7 @@ package rpc
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/m0rk0vka/hex/internal/adapters/framework/left/grpc/pb"
 	"google.golang.org/grpc/codes"
@@ -17,7 +18,7 @@ func (grpca Adapter) GetAddition(ctx context.Context, req *pb.OperationParameter
 
 	answer, err := grpca.api.GetAddition(req.A, req.B)
 	if err != nil {
-		return ans, status.Error(codes.Internal, "unexpected error")
+		return ans, status.Error(codes.Internal, fmt.Sprint("unexpected error:", err.Error()))
 	}
 
 	ans = &pb.Answer{
